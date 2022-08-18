@@ -1,7 +1,21 @@
-console.log("hi there");
+class Sorter {
+  constructor(public collection: number[]) {}
 
-const logSomething = () => {
-  console.log("test");
-};
+  sort(): void {
+    const { length } = this.collection;
 
-logSomething();
+    for (let i = 0; i < length; i++) {
+      for (let j = 0; j < length - i - 1; j++) {
+        if (this.collection[j] > this.collection[j + 1]) {
+          const start = this.collection[j];
+          this.collection[j] = this.collection[j + 1];
+          this.collection[j + 1] = start;
+        }
+      }
+    }
+  }
+}
+
+const sorter = new Sorter([9, 4, -3, 2]);
+sorter.sort();
+console.log(sorter.collection);

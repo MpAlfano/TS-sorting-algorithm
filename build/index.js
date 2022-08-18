@@ -1,6 +1,21 @@
 "use strict";
-console.log("hi there");
-const logSomething = () => {
-    console.log("test");
-};
-logSomething();
+class Sorter {
+    constructor(collection) {
+        this.collection = collection;
+    }
+    sort() {
+        const { length } = this.collection;
+        for (let i = 0; i < length; i++) {
+            for (let j = 0; j < length - i - 1; j++) {
+                if (this.collection[j] > this.collection[j + 1]) {
+                    const start = this.collection[j];
+                    this.collection[j] = this.collection[j + 1];
+                    this.collection[j + 1] = start;
+                }
+            }
+        }
+    }
+}
+const sorter = new Sorter([9, 4, -3, 2]);
+sorter.sort();
+console.log(sorter.collection);
