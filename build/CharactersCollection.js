@@ -16,7 +16,7 @@ class CharactersCollection {
         const leftHand = characters[leftIndex];
         characters[leftIndex] = characters[rightIndex];
         characters[rightIndex] = leftHand;
-        this.data = characters.join("");
+        this.data = characters.join("").toLowerCase();
     }
 }
 exports.CharactersCollection = CharactersCollection;
